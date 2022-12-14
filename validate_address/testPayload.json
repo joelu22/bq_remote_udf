@@ -1,0 +1,11 @@
+{
+    "requestId": "124ab1c",
+    "caller": "//bigquery.googleapis.com/projects/myproject/jobs/myproject:US.bquxjob_5b4c112c_17961fafeaf",
+    "sessionUser": "test-user@test-company.com",
+    "calls": [
+     ["2600 Benjamin Franklin Pkwy, Philadelphia, PA 19130", "US"],
+     ["2600 Ben Franklin, Philly, PA 19130", "US"],
+     ["2600 Ben Franklin, Philadelphia, PA", "US"],
+     ["2600 Benjamin Franklin, Philly", "US"]
+    ]
+   }
