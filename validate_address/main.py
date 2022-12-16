@@ -4,9 +4,15 @@ import json
 import googlemaps
 import os
 
+# This is the entry point for the Cloud Function.
+# It looks similar for most Remote UDFs I write. 
+# It simply creates a for loop for the batch of data
+# and sends each row to the next function.
 def validate_address(request):
   try:
     gmaps = googlemaps.Client(key=os.getenv('GMAPS_API'))
+    # Consider storing your Google Maps API Key in Secrets Manager
+    # so it can be called securely
 
     return_value = []
     request_json = request.get_json()
@@ -18,9 +24,10 @@ def validate_address(request):
   except Exception as inst:
     return json.dumps( { "errorMessage": f"Unexpected {inst=}, {type(inst)=}" } ), 400
 
+# This function does the work on each row.
+# In this case it calls the Google Maps Address Validation API
+# for the address and region sent to it.
 def each_row(gmaps, call):
-
   retval = gmaps.addressvalidation([call[0]], regionCode=call[1])
-
   return retval
 
