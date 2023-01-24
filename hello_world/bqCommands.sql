@@ -2,7 +2,7 @@
 
 bq mk --connection \
     --connection_type=CLOUD_RESOURCE \
-    --project_id=gcp528a1 \
+    --project_id=<projectname> \
     --location=us-central1 \
     remote_cloudfunc_conn
 
@@ -17,8 +17,8 @@ bq --location=us-central1 mk -d \
 
 
 CREATE OR REPLACE FUNCTION `remote_udf.hello_world` (x STRING) RETURNS STRING 
-REMOTE WITH CONNECTION `gcp528a1.us-central1.remote_cloudfunc_conn` 
-OPTIONS (endpoint = 'https://hello-world-xju5dymn7q-uc.a.run.app')
+REMOTE WITH CONNECTION `gcp528a1.us-central1.remote_cloudfunc_conn` --Replace withyour connection
+OPTIONS (endpoint = 'https://hello-world-xju5dymn7q-uc.a.run.app') --Replace with your cloud function
 ;
 
 select val, remote_udf.hello_world(val)

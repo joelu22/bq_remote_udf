@@ -1,6 +1,6 @@
 CREATE OR REPLACE FUNCTION `remote_udf.validate_address` (address STRING, region STRING) RETURNS JSON 
-REMOTE WITH CONNECTION `gcp528a1.us-central1.remote_cloudfunc_conn` 
-OPTIONS (endpoint = 'https://validate-address-xju5dymn7q-uc.a.run.app')
+REMOTE WITH CONNECTION `gcp528a1.us-central1.remote_cloudfunc_conn`  --Replace withyour connection
+OPTIONS (endpoint = 'https://validate-address-xju5dymn7q-uc.a.run.app') --Replace with your cloud function
 ;
 
 SELECT
