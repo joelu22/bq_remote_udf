@@ -6,5 +6,4 @@ Read my medium artical for more detail.
 1.) Create a Cloud Function (each directory has a main.py which can be tested with testPayload.json)
 
 2.) Create a BigQuery Connection and Register the Remote Function (sample in bqCommands.sql)
-
 3.) Query! (sample in bqCommands.sql)
